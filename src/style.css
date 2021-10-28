@@ -1,0 +1,159 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  max-width: 100%;
+}
+
+.main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(243, 243, 243);
+}
+
+.container {
+  width: 80%;
+  box-shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.13);
+}
+
+.cont-heading-title {
+  width: 100%;
+  height: 3rem;
+  padding: 0 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+}
+
+.symbol-reload-cont {
+  cursor: pointer;
+}
+
+.cont-input {
+  position: relative;
+}
+
+.new-todo-field {
+  font-family: "Poppins", sans-serif;
+  width: 100%;
+  font-size: 1rem;
+  padding: 1rem;
+  height: 3rem;
+  padding-right: 2rem;
+  border: none;
+  border-top: 1px solid rgb(243, 243, 243);
+  border-bottom: 1px solid rgb(243, 243, 243);
+}
+
+.new-todo-field:focus {
+  outline: none;
+}
+
+.symbol-enter-cont {
+  position: absolute;
+  top: 50%;
+  transform: translate(-200%, -50%);
+  cursor: pointer;
+}
+
+.cont-reset-btn {
+  height: 3.5rem;
+  display: flex;
+  background-color: rgb(224, 224, 224);
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-reset {
+  background-color: rgb(224, 224, 224);
+  font-size: 1rem;
+  border: none;
+  border-bottom: 2px solid transparent;
+  transition: all 0.1s;
+  cursor: pointer;
+}
+
+.btn-reset:hover {
+  border-bottom: 2px solid #000;
+}
+
+.cont-todos {
+  list-style: none;
+}
+
+.todo {
+  position: relative;
+  width: 100%;
+  height: 3rem;
+}
+
+.todo-edt-input {
+  font-family: "Poppins", sans-serif;
+  width: 100%;
+  height: 3rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  border: none;
+  border-top: 1px solid rgb(243, 243, 243);
+  border-bottom: 1px solid rgb(243, 243, 243);
+}
+
+.todo-edt-input:focus {
+  outline: none;
+}
+
+.check {
+  position: absolute;
+  top: 50%;
+  transform: translate(100%, -50%);
+  font-weight: 900;
+  padding: 0.5rem 0;
+}
+
+.symbol-option-cont {
+  position: absolute;
+  top: 50%;
+  transform: translate(-350%, -50%);
+  font-weight: 900;
+  padding: 0.5rem 0;
+  cursor: pointer;
+}
+
+@media (min-width: 825px) {
+  .container {
+    width: 70%;
+  }
+}
+
+@media (min-width: 1000px) {
+  .container {
+    width: 60%;
+  }
+}
+
+@media (min-width: 1225px) {
+  .container {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1425px) {
+  .container {
+    width: 40%;
+  }
+}
