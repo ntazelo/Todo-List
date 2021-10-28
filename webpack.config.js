@@ -11,11 +11,11 @@ module.exports = {
     }),
   ],
   devServer: {
-    static: './docs',
+    static: './dist',
   },
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'docs'),
+    path: path.resolve(__dirname, 'dist'),
     clean: true,
   },
   module: {
