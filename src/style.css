@@ -64,6 +64,8 @@ body {
 
 .symbol-enter-cont {
   position: absolute;
+  border: none;
+  background-color: #fff !important;
   top: 50%;
   transform: translate(-200%, -50%);
   cursor: pointer;
