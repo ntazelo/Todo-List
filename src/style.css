@@ -130,7 +130,7 @@ body {
 .symbol-option-cont {
   position: absolute;
   top: 50%;
-  transform: translate(-350%, -50%);
+  transform: translate(-200%, -50%);
   font-weight: 900;
   padding: 0.5rem 0;
   cursor: pointer;

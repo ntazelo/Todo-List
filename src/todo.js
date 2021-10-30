@@ -39,7 +39,25 @@ function listItm(todos) {
   });
   const iconSpan = document.createElement('span');
   iconSpan.className = 'symbol-option-cont';
-  iconSpan.innerHTML = '&vellip;';
+  iconSpan.innerHTML = '&#128465;';
+  iconSpan.addEventListener('click', () => {
+    const data = JSON.parse(localStorage.getItem('data'));
+    const indx = todos.index;
+    data.splice(indx - 1, 1);
+    let index = 1;
+    data.forEach((el) => {
+      el.index = index;
+      index += 1;
+    });
+    localStorage.setItem('data', JSON.stringify(data));
+    const itemslist = document.querySelector('.cont-todos');
+    itemslist.innerHTML = null;
+
+    data.forEach((todos) => {
+      const itemList = listItm(todos);
+      itemslist.appendChild(itemList);
+    });
+  });
   itemlist.className = 'todo';
   if (todos.completed === true) {
     todoField.style.textDecoration = 'line-through';
@@ -97,6 +115,10 @@ export default class AddTodo {
         }
       }
     });
+  }
+
+  static deleteOne() {
+
   }
 
   static deleteTodo() {
