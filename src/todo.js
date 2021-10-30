@@ -22,7 +22,6 @@ function listItm(todos) {
       localStorage.setItem('data', JSON.stringify(data));
     }
   });
-  checkbox.id = todos.index;
   checkbox.setAttribute('type', 'checkbox');
   checkbox.checked = todos.completed;
   const todoField = document.createElement('input');
@@ -96,6 +95,29 @@ export default class AddTodo {
         } else {
           console.log('error occurred');
         }
+      }
+    });
+  }
+
+  static deleteTodo() {
+    const clearAll = document.querySelector('.btn-reset');
+    clearAll.addEventListener('click', () => {
+      const data = JSON.parse(localStorage.getItem('data'));
+      if (data) {
+        const filtered = data.filter((el) => el.completed === false);
+        let index = 1;
+        filtered.forEach((el) => {
+          el.index = index;
+          index += 1;
+        });
+        localStorage.setItem('data', JSON.stringify(filtered));
+        const itemslist = document.querySelector('.cont-todos');
+        itemslist.innerHTML = null;
+
+        filtered.forEach((todos) => {
+          const itemList = listItm(todos);
+          itemslist.appendChild(itemList);
+        });
       }
     });
   }
