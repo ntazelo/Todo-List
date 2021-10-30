@@ -64,6 +64,8 @@ body {
 
 .symbol-enter-cont {
   position: absolute;
+  border: none;
+  background-color: #fff !important;
   top: 50%;
   transform: translate(-200%, -50%);
   cursor: pointer;
@@ -128,7 +130,7 @@ body {
 .symbol-option-cont {
   position: absolute;
   top: 50%;
-  transform: translate(-350%, -50%);
+  transform: translate(-200%, -50%);
   font-weight: 900;
   padding: 0.5rem 0;
   cursor: pointer;
