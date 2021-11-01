@@ -11,7 +11,7 @@
       rel="stylesheet"
     />
     <title>Todo List</title>
-  <script defer src="main.bundle.js"></script></head>
+  <script defer src="/Todo-List/main.bundle.js"></script></head>
   <body>
     <section class="main">
       <div class="container">
@@ -24,10 +24,13 @@
             class="new-todo-field"
             type="text"
             placeholder="Add to your list ..."
+            value=""
           />
-          <span class="symbol-enter-cont">&#9166;</span>
+          <button type="button" class="symbol-enter-cont">&#9166;</button>
         </div>
-        <ul class="cont-todos"></ul>
+        <ul class="cont-todos">
+          
+        </ul>
         <div class="cont-reset-btn">
           <button type="button" class="btn-reset">Clear all completed</button>
         </div>
