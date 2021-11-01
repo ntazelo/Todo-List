@@ -110,8 +110,6 @@ export default class AddTodo {
           const itmList = listItm(todos);
           listItems.appendChild(itmList);
           fieldTodo.value = '';
-        } else {
-          console.log('error occurred');
         }
       }
     });
