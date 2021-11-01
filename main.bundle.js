@@ -116,7 +116,7 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _todo_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./todo.js */ \"./src/todo.js\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\n\ndocument.addEventListener('DOMContentLoaded', () => {\n  _todo_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"].add();\n  _todo_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"].populateTodos();\n  _todo_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"].deleteTodo();\n});\n\n\n//# sourceURL=webpack://Todo-List/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _todo_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./todo.js */ \"./src/todo.js\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\n\ndocument.addEventListener('DOMContentLoaded', () => {\n  _todo_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"].add();\n  _todo_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"].populateTodos();\n  _todo_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"].deleteTodo();\n  alert('js working');\n});\n\n\n//# sourceURL=webpack://Todo-List/./src/index.js?");
 
 /***/ }),
 
