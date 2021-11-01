@@ -6,3 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   AddTodo.populateTodos();
   AddTodo.deleteTodo();
 });
+
+const ghpages = require('gh-pages');
+
+ghpages.publish('dist', () => {});
