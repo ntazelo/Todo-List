@@ -72,9 +72,8 @@ function listItm(todos) {
 
 export default class AddTodo {
   static populateTodos() {
-    let todosloc;
     if (localStorage.getItem('data')) {
-      todosloc = JSON.parse(localStorage.getItem('data'));
+      const todosloc = JSON.parse(localStorage.getItem('data'));
 
       const itemslist = document.querySelector('.cont-todos');
       todosloc.forEach((todos) => {
@@ -113,10 +112,8 @@ export default class AddTodo {
         }
       }
     });
-  }
-
-  static deleteOne() {
-
+    const data = JSON.parse(localStorage.getItem('data'));
+    return data.length;
   }
 
   static deleteTodo() {
@@ -142,3 +139,5 @@ export default class AddTodo {
     });
   }
 }
+
+module.exports = AddTodo;

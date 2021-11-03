@@ -5,5 +5,4 @@ document.addEventListener('DOMContentLoaded', () => {
   AddTodo.add();
   AddTodo.populateTodos();
   AddTodo.deleteTodo();
-  alert('js working');
 });
