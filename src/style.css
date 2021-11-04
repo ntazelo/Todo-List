@@ -1,3 +1,8 @@
+:root {
+  --border-color: rgb(243, 243, 243);
+  --back-color: rgb(224, 224, 224);
+}
+
 *,
 *::after,
 *::before {
@@ -20,7 +25,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(243, 243, 243);
+  background-color: var(--border-color);
 }
 
 .container {
@@ -54,8 +59,8 @@ body {
   height: 3rem;
   padding-right: 2rem;
   border: none;
-  border-top: 1px solid rgb(243, 243, 243);
-  border-bottom: 1px solid rgb(243, 243, 243);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .new-todo-field:focus {
@@ -74,13 +79,13 @@ body {
 .cont-reset-btn {
   height: 3.5rem;
   display: flex;
-  background-color: rgb(224, 224, 224);
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  background-color: var(--back-color);
 }
 
 .btn-reset {
-  background-color: rgb(224, 224, 224);
+  background-color: var(--back-color);
   font-size: 1rem;
   border: none;
   border-bottom: 2px solid transparent;
@@ -111,8 +116,8 @@ body {
   padding-right: 2rem;
   padding-left: 2rem;
   border: none;
-  border-top: 1px solid rgb(243, 243, 243);
-  border-bottom: 1px solid rgb(243, 243, 243);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .todo-edt-input:focus {

@@ -1,3 +1,6 @@
+function getLocal() {
+  return JSON.parse(localStorage.getItem('todo'));
+}
 function listItm(todos) {
   const itemlist = document.createElement('li');
   const checkbox = document.createElement('input');
@@ -9,7 +12,7 @@ function listItm(todos) {
     } else {
       checkbox.nextElementSibling.style.textDecoration = 'none';
     }
-    const data = JSON.parse(localStorage.getItem('todo'));
+    const data = getLocal();
     const indx = todos.index;
     const action = data.filter((todo) => indx === todo.index);
     if (action[0].completed === false) {
@@ -29,7 +32,7 @@ function listItm(todos) {
   todoField.setAttribute('type', 'text');
   todoField.addEventListener('input', () => {
     if (todoField.value !== '') {
-      const data = JSON.parse(localStorage.getItem('todo'));
+      const data = getLocal();
       const indx = todos.index;
       const action = data.filter((todo) => indx === todo.index);
       action[0].description = todoField.value;
@@ -41,7 +44,7 @@ function listItm(todos) {
   iconSpan.className = 'symbol-option-cont';
   iconSpan.innerHTML = '&#128465;';
   iconSpan.addEventListener('click', () => {
-    const data = JSON.parse(localStorage.getItem('todo'));
+    const data = getLocal();
     const indx = todos.index;
     data.splice(indx - 1, 1);
     let index = 1;
@@ -73,7 +76,7 @@ function listItm(todos) {
 export default class AddTodo {
   static populateTodos() {
     if (localStorage.getItem('todo') !== null) {
-      const todosloc = JSON.parse(localStorage.getItem('todo'));
+      const todosloc = getLocal();
 
       const itemslist = document.querySelector('.cont-todos');
       todosloc.forEach((todos) => {
@@ -102,7 +105,7 @@ export default class AddTodo {
           listItems.appendChild(itmList);
           fieldTodo.value = '';
         } else if (localStorage.getItem('todo') !== null && fieldTodo.value.length > 0) {
-          const data = JSON.parse(localStorage.getItem('todo'));
+          const data = getLocal();
           const todos = { description: fieldTodo.value, completed: false, index: data.length + 1 };
           data.push(todos);
           localStorage.setItem('todo', JSON.stringify(data));
@@ -117,7 +120,7 @@ export default class AddTodo {
   static deleteTodo() {
     const clearAll = document.querySelector('.btn-reset');
     clearAll.addEventListener('click', () => {
-      const data = JSON.parse(localStorage.getItem('todo'));
+      const data = getLocal();
       if (data) {
         const filtered = data.filter((el) => el.completed === false);
         let index = 1;
