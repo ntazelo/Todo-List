@@ -12,7 +12,7 @@ Hi Everyone! I'm Ntazama Eloi here I built a simple To Do app.
 
 # live demo
 
-[live demo ](https://ntazelo.github.io/Todo-List/dist)
+[live demo ](https://ntazelo.github.io/Todo-List)
 
 # Getting Started
 

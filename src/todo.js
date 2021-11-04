@@ -9,17 +9,17 @@ function listItm(todos) {
     } else {
       checkbox.nextElementSibling.style.textDecoration = 'none';
     }
-    const data = JSON.parse(localStorage.getItem('data'));
+    const data = JSON.parse(localStorage.getItem('todo'));
     const indx = todos.index;
     const action = data.filter((todo) => indx === todo.index);
     if (action[0].completed === false) {
       action[0].completed = true;
       data.splice(indx - 1, 1, action[0]);
-      localStorage.setItem('data', JSON.stringify(data));
+      localStorage.setItem('todo', JSON.stringify(data));
     } else {
       action[0].completed = false;
       data.splice(indx - 1, 1, action[0]);
-      localStorage.setItem('data', JSON.stringify(data));
+      localStorage.setItem('todo', JSON.stringify(data));
     }
   });
   checkbox.setAttribute('type', 'checkbox');
@@ -29,19 +29,19 @@ function listItm(todos) {
   todoField.setAttribute('type', 'text');
   todoField.addEventListener('input', () => {
     if (todoField.value !== '') {
-      const data = JSON.parse(localStorage.getItem('data'));
+      const data = JSON.parse(localStorage.getItem('todo'));
       const indx = todos.index;
       const action = data.filter((todo) => indx === todo.index);
       action[0].description = todoField.value;
       data.splice(indx - 1, 1, action[0]);
-      localStorage.setItem('data', JSON.stringify(data));
+      localStorage.setItem('todo', JSON.stringify(data));
     }
   });
   const iconSpan = document.createElement('span');
   iconSpan.className = 'symbol-option-cont';
   iconSpan.innerHTML = '&#128465;';
   iconSpan.addEventListener('click', () => {
-    const data = JSON.parse(localStorage.getItem('data'));
+    const data = JSON.parse(localStorage.getItem('todo'));
     const indx = todos.index;
     data.splice(indx - 1, 1);
     let index = 1;
@@ -49,7 +49,7 @@ function listItm(todos) {
       el.index = index;
       index += 1;
     });
-    localStorage.setItem('data', JSON.stringify(data));
+    localStorage.setItem('todo', JSON.stringify(data));
     const itemslist = document.querySelector('.cont-todos');
     itemslist.innerHTML = null;
 
@@ -72,8 +72,8 @@ function listItm(todos) {
 
 export default class AddTodo {
   static populateTodos() {
-    if (localStorage.getItem('data')) {
-      const todosloc = JSON.parse(localStorage.getItem('data'));
+    if (localStorage.getItem('todo') !== null) {
+      const todosloc = JSON.parse(localStorage.getItem('todo'));
 
       const itemslist = document.querySelector('.cont-todos');
       todosloc.forEach((todos) => {
@@ -88,7 +88,7 @@ export default class AddTodo {
     const listItems = document.querySelector('.cont-todos');
     fieldTodo.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') {
-        if (localStorage.getItem('data') === null && fieldTodo.value.length > 0) {
+        if (localStorage.getItem('todo') === null && fieldTodo.value.length > 0) {
           const todosList = [];
           const todos = {
             description:
@@ -97,29 +97,27 @@ export default class AddTodo {
             index: todosList.length + 1,
           };
           todosList.push(todos);
-          localStorage.setItem('data', JSON.stringify(todosList));
+          localStorage.setItem('todo', JSON.stringify(todosList));
           const itmList = listItm(todos);
           listItems.appendChild(itmList);
           fieldTodo.value = '';
-        } else if (localStorage.getItem('data') !== null && fieldTodo.value.length > 0) {
-          const data = JSON.parse(localStorage.getItem('data'));
+        } else if (localStorage.getItem('todo') !== null && fieldTodo.value.length > 0) {
+          const data = JSON.parse(localStorage.getItem('todo'));
           const todos = { description: fieldTodo.value, completed: false, index: data.length + 1 };
           data.push(todos);
-          localStorage.setItem('data', JSON.stringify(data));
+          localStorage.setItem('todo', JSON.stringify(data));
           const itmList = listItm(todos);
           listItems.appendChild(itmList);
           fieldTodo.value = '';
         }
       }
     });
-    const data = JSON.parse(localStorage.getItem('data'));
-    return data.length;
   }
 
   static deleteTodo() {
     const clearAll = document.querySelector('.btn-reset');
     clearAll.addEventListener('click', () => {
-      const data = JSON.parse(localStorage.getItem('data'));
+      const data = JSON.parse(localStorage.getItem('todo'));
       if (data) {
         const filtered = data.filter((el) => el.completed === false);
         let index = 1;
@@ -127,7 +125,7 @@ export default class AddTodo {
           el.index = index;
           index += 1;
         });
-        localStorage.setItem('data', JSON.stringify(filtered));
+        localStorage.setItem('todo', JSON.stringify(filtered));
         const itemslist = document.querySelector('.cont-todos');
         itemslist.innerHTML = null;
 
@@ -139,5 +137,3 @@ export default class AddTodo {
     });
   }
 }
-
-module.exports = AddTodo;
